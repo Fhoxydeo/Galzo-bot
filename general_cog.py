@@ -15,3 +15,5 @@ class general_cog(commands.Cog):
     async def roll(self, ctx):
         number = random.randrange(1, 99)
         await ctx.send("You has been rolled {}".format(number))
+
+
