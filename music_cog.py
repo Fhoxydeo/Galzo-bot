@@ -1,7 +1,8 @@
 import discord
 from discord.ext import commands
-
+from discord.player import FFmpegOpusAudio
 from youtube_dl import YoutubeDL
+import ffmpeg
 
 class music_cog(commands.Cog):
     def __init__(self, bot):
@@ -57,8 +58,7 @@ class music_cog(commands.Cog):
 
     @commands.command(name="play", help="Plays a selected song from youtube")
     async def p(self, ctx, *args):
-        query = " ".join(args)
-        
+        query = " ".join(args)   
         voice_channel = ctx.author.voice.channel
         if voice_channel is None:
             await ctx.send("Connect to a voice channel!")
@@ -90,3 +90,7 @@ class music_cog(commands.Cog):
         if self.vc != "" and self.vc:
             self.vc.stop()
             await self.play_music()
+
+    @commands.command(name="disconnect", help="Disconnecting bot from VC")
+    async def dc(self, ctx):
+        await self.disconnect()
