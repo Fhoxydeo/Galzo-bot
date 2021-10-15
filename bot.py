@@ -13,10 +13,4 @@ client.add_cog(music_cog(client))
 async def on_ready():
     print('{0.user} has online'.format(client))
 
-@client.event
-async def on_message(message):
-    if message.content.startswith('wee'):
-        channel = message.channel
-        await channel.send('Shut up retard!')
-
 client.run(os.environ['TOKENSZ'])

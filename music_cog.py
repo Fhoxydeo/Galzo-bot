@@ -1,4 +1,5 @@
 import discord
+from discord.channel import VoiceChannel
 from discord.ext import commands
 from discord.player import FFmpegOpusAudio
 from youtube_dl import YoutubeDL
@@ -93,4 +94,4 @@ class music_cog(commands.Cog):
 
     @commands.command(name="disconnect", help="Disconnecting bot from VC")
     async def dc(self, ctx):
-        await self.disconnect()
+        await self.vc.disconnect()
